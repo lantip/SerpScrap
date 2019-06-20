@@ -46,6 +46,7 @@ class Config():
         'search_type': 'normal',
         'google_search_url': 'https://www.google.com/search?',
         'bing_search_url': 'http://www.bing.com/search?',
+        'exclude': ['wikipedia.com', 'youtube.com', 'twitter.com', 'facebook.com'],
         'headers': {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
             'Accept-Language': 'de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4',

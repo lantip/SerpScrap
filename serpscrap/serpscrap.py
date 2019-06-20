@@ -136,10 +136,17 @@ class SerpScrap():
             for index, result in enumerate(self.results):
                 if 'serp_type' in result and \
                    'serp_url' in result:
-                    logger.info('Scraping URL: ' + result['serp_url'])
-                    result_url = self.scrap_url(result['serp_url'])
-                    if 'status' in result_url:
-                        self.results[index].update(result_url)
+                    doscrap = True
+                    if 'exclude' in self.config.keys():
+                        if len(self.config['exclude']) > 0:
+                            for exl in self.config['exclude']:
+                                if 'exl' in result['serp_url']:
+                                    doscrap = False
+                    if doscrap:
+                        logger.info('Scraping URL: ' + result['serp_url'])
+                        result_url = self.scrap_url(result['serp_url'])
+                        if 'status' in result_url:
+                            self.results[index].update(result_url)
         return self.results if isinstance(self.results, list) else [self.results]
 
     def as_csv(self, file_path):
