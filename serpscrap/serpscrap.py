@@ -140,7 +140,7 @@ class SerpScrap():
                     if 'exclude' in self.config.keys():
                         if len(self.config['exclude']) > 0:
                             for exl in self.config['exclude']:
-                                if 'exl' in result['serp_url']:
+                                if exl in result['serp_url']:
                                     doscrap = False
                     if doscrap:
                         logger.info('Scraping URL: ' + result['serp_url'])
